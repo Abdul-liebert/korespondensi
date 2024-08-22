@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('waktu');
             $table->string('daring');
             $table->string('materi');
+            $table->string('pemateri');
             $table->text('peserta');
             $table->text('hasil');
             $table->string('file_surat');

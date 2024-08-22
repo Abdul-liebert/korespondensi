@@ -14,7 +14,8 @@
                         <div class="row g-5 align-items-center mx-auto  ">
 
                             <div class="col-4 ">
-                                <label class="form-selectgroup-item flex-fill bg-primary-subtle border border-primary-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-primary-subtle border border-primary-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-info">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -56,7 +57,8 @@
                                 </label>
                             </div>
                             <div class="col-4">
-                                <label class="form-selectgroup-item flex-fill bg-primary-subtle border border-primary-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-primary-subtle border border-primary-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-info">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -98,7 +100,8 @@
                             </div>
 
                             <div class="col-4">
-                                <label class="form-selectgroup-item flex-fill bg-danger-subtle border border-danger-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-danger-subtle border border-danger-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-danger">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -138,7 +141,8 @@
                             </div>
 
                             <div class="col-4">
-                                <label class="form-selectgroup-item flex-fill bg-warning-subtle border border-warning-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-warning-subtle border border-warning-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-yellow">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -179,7 +183,8 @@
                                 </label>
                             </div>
                             <div class="col-4">
-                                <label class="form-selectgroup-item flex-fill bg-warning-subtle border border-warning-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-warning-subtle border border-warning-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-warning">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -216,13 +221,15 @@
                                                 </svg></span>
                                         </div>
                                         <div>
-                                            <div class="fw-bolder text-warning fs-3">Notulensi Rapat</div>
+                                            <div class="fw-bolder text-warning fs-3">Notulensi Rapat & Pelatihan Guru
+                                            </div>
                                         </div>
                                     </div>
                                 </label>
                             </div>
                             <div class="col-4">
-                                <label class="form-selectgroup-item flex-fill bg-success-subtle border border-success-subtle rounded-3">
+                                <label
+                                    class="form-selectgroup-item flex-fill bg-success-subtle border border-success-subtle rounded-3">
                                     <div class="card-stamp">
                                         <div class="card-stamp-icon bg-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -271,10 +278,12 @@
                             <div class="col-4 d-flex ">
 
                                 <select id="tp" class="form-select me-3">
-                                    <option selected>Pilih Tahun Ajaran</option>
+                                    <option value="Selected">Pilih Tahun Ajaran</option>
                                     <option value="2022/2023">2022/2023</option>
                                     <option value="2023/2024">2023/2024</option>
                                     <option value="2024/2025">2024/2025</option>
+                                    <option value="2025/2026">2025/2026</option>
+                                    <option value="2026/2027">2026/2027</option>
                                 </select>
 
                                 <select id="js" class="form-select me-3" onchange="showInputField()">
@@ -292,7 +301,8 @@
                                 </select>
 
                                 <div id="inputLainnya" class="hidden">
-                                    <input type="text" class="form-control" name="no_surat" placeholder="Kolom wajib diisi" id="no_surat">
+                                    <input type="text" class="form-control" name="no_surat"
+                                        placeholder="Kolom wajib diisi" id="no_surat">
                                 </div>
                             </div>
                             <div class="col-auto  text-end">
@@ -373,24 +383,23 @@
                 'removeMaskOnSubmit': true
             });
         });
-
     </script>
 
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             let tableIds = ['myTable1', 'myTable2', 'myTable3', 'myTable4', 'myTable5', 'myTable6'];
 
             // Initialize tables when modal is shown
-            $('#modalView1, #modalView2, #modalView3, #modalView4, #modalView5, #modalView6').on('shown.bs.modal', function() {
-                tableIds.forEach(function(id) {
-                    let tableElement = document.getElementById(id);
-                    if (tableElement && !$.fn.DataTable.isDataTable(tableElement)) {
-                        new DataTable(tableElement); // Initialize DataTable for each table
-                    }
+            $('#modalView1, #modalView2, #modalView3, #modalView4, #modalView5, #modalView6').on('shown.bs.modal',
+                function() {
+                    tableIds.forEach(function(id) {
+                        let tableElement = document.getElementById(id);
+                        if (tableElement && !$.fn.DataTable.isDataTable(tableElement)) {
+                            new DataTable(tableElement); // Initialize DataTable for each table
+                        }
+                    });
                 });
-            });
         });
-
     </script>
 </x-app-layout>

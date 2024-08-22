@@ -25,6 +25,7 @@ class notulensi extends Model
         'file_dokumentasi',
         'start_date',
         'end_date',
+        'pemateri'
     ];
 
     protected $dates = ['tanggal'];

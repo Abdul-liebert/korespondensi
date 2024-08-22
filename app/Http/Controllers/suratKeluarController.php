@@ -29,6 +29,7 @@ class suratKeluarController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validated=$request->validate([
             'tp' => 'required',
             'tanggal' => 'required|date',

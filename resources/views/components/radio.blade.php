@@ -117,7 +117,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label required">Jenis Surat Lainnya</label>
-                            <input type="text" id="lainnya-field-1" class="form-control" name="jenis_surat" placeholder="Masukkan jenis surat lainnya" disabled>
+                            <input type="text" id="lainnya-field-1" class="form-control" name="jenis_surat"
+                                placeholder="Masukkan jenis surat lainnya" disabled>
                         </div>
                     </div>
                 </div>
@@ -133,7 +134,92 @@
     </form>
 </div>
 
-<div class="modal modal-blur fade" id="modalReport2" tabindex="-1" aria-hidden="false" style="display: none;">
+<x-component-korespondensi.modals id="modalReport2"  method='POST'>
+    <x-component-korespondensi.modal-header title="Surat Keluar" />
+
+    <x-component-korespondensi.modal-body>
+        <div class="row">
+            <div class="col-6">
+
+                <x-component-korespondensi.select id="tp-modal-2" label="Tahun Ajaran" name="tp"
+                    required="true">
+                    <option value="Selected">Pilih Tahun Ajaran</option>
+                    <option value="2022/2023">2022/2023</option>
+                    <option value="2023/2024">2023/2024</option>
+                    <option value="2024/2025">2024/2025</option>
+                    <option value="2025/2026">2025/2026</option>
+                    <option value="2026/2027">2026/2027</option>
+                </x-component-korespondensi.select>
+            </div>
+
+            <div class="col-6">
+                <x-component-korespondensi.input label="tanggal" name="tanggal" placeholder="Pilih Tanggal"
+                    type="date" id="datepicket-icon-2">\
+                    <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z">
+                            </path>
+                            <path d="M16 3v4"></path>
+                            <path d="M8 3v4"></path>
+                            <path d="M4 11h16"></path>
+                            <path d="M11 15h1"></path>
+                            <path d="M12 15v3"></path>
+                        </svg>
+                    </span>
+                </x-component-korespondensi.input>
+            </div>
+        </div>
+    </x-component-korespondensi.modal-body>
+
+    <x-component-korespondensi.modal-body>
+        <div class="row">
+            <div class="col-6">
+                <x-component-korespondensi.select id="js-modal-2" label="Jenis Surat" name="jenis_surat"
+                    label="Jenis Surat" required="true">
+                    <option selected>Pilih Jenis Surat</option>
+                    <option value="Surat Tugas">Surat Tugas</option>
+                    <option value="Surat permohonan">Surat permohonan</option>
+                    <option value="Surat Peringatan">Surat Peringatan</option>
+                    <option value="Surat Studi Banding">Surat Studi Banding</option>
+                    <option value="Surat Persetujuan">Surat Persetujuan</option>
+                    <option value="Surat Edaran">Surat Edaran</option>
+                    <option value="Surat Undangan">Surat Undangan</option>
+                    <option value="Surat Pemberitahuan">Surat Pemberitahuan</option>
+                    <option value="Surat Izin">Surat Izin</option>
+                    <option value="Lainnya">Surat Lainnya</option>
+                </x-component-korespondensi.select>
+            </div>
+            <div class="col-6">
+                <x-component-korespondensi.input type="text" label="Perihal" name="perihal"
+                    placeholder="Kolom wajib diisi" />
+            </div>
+            <div class="col-6">
+                <x-component-korespondensi.input type="text" label="Kepada" name="kepada"
+                    placeholder="Kolom wajib diisi" />
+            </div>
+            <div class="col-6">
+                <x-component-korespondensi.input type="text" label="No. Surat" name="no_surat"
+                    placeholder="Kolom wajib diisi" id="no-surat2" />
+            </div>
+        </div>
+    </x-component-korespondensi.modal-body>
+    <x-component-korespondensi.modal-body>
+        <div class="col-12">
+            <x-component-korespondensi.input type="file" label="Import File" name="file_surat"
+                placeholder="Kolom wajib diisi" />
+        </div>
+        {{-- <div class="col-12">
+            <x-component-korespondensi.input type="text" label="Jenis Surat Lainnya" name="jenis_surat"
+                placeholder="Masukkan Jenis Surat" disabled id="lainnya-field-2" />
+        </div> --}}
+    </x-component-korespondensi.modal-body>
+    <x-component-korespondensi.modal-footer />
+</x-component-korespondensi.modals>
+
+{{-- <div class="modal modal-blur fade" id="modalReport2" tabindex="-1" aria-hidden="false" style="display: none;">
     <form action="{{ route('outbox.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -250,7 +336,8 @@
                             @enderror
                             <div class="mb-3">
                                 <label class="form-label required">Jenis Surat Lainnya 2</label>
-                                <input type="text" id="lainnya-field-2" class="form-control" name="jenis_surat" placeholder="Masukkan jenis surat lainnya" disabled>
+                                <input type="text" id="lainnya-field-2" class="form-control" name="jenis_surat"
+                                    placeholder="Masukkan jenis surat lainnya" disabled>
                             </div>
                         </div>
                     </div>
@@ -264,7 +351,7 @@
             </div>
         </div>
     </form>
-</div>
+</div> --}}
 
 <div class="modal modal-blur fade" id="modalReport3" tabindex="-1" aria-hidden="true" style="display: none;">
     <form action="{{ route('sp.store') }}" method="post" enctype="multipart/form-data">
@@ -604,8 +691,8 @@
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
-                                <label class="form-label required">Hasil</label>
-                                <input type="text" class="form-control" name="hasil"
+                                <label class="form-label required">Pemateri</label>
+                                <input type="text" class="form-control" name="pemateri"
                                     placeholder="Kolom wajib diisi">
                                 @error('hasil')
                                     <div class="text-danger">{{ $message }}</div>
@@ -772,7 +859,8 @@
                 <div class="modal-footer text-end">
                     <div class="d-flex">
                         <a href="#" class="btn btn-link" data-bs-dismiss="modal">Cancel</a>
-                        <button type="submit" id="submitPengajuan" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Save</button>
+                        <button type="submit" id="submitPengajuan" class="btn btn-primary ms-auto"
+                            data-bs-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
@@ -961,7 +1049,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Rekap Surat Keluar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>  
+            </div>
             <div class="modal-body">
                 <div class="container">
 
@@ -1306,7 +1394,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <select name="subjek" id="subjekFilter" class="form-controll" >
+                                <select name="subjek" id="subjekFilter" class="form-controll">
                                     <option selected>Pilih subjek</option>
                                     <option value="siswa">siswa</option>
                                     <option value="guru">guru</option>
@@ -2697,14 +2785,9 @@
         const selectElement = document.getElementById(selectId);
         const inputElement = document.getElementById(inputId);
 
-        selectElement.addEventListener('change', function() {
-            if (selectElement.value === 'Lainnya') {
-                inputElement.disabled = false;
-                selectElement.disabled = true;
-            } else {
-                inputElement.disabled = true;
-                selectElement.disabled = false;
-            }
+        selectElement.addEventListener('change', () => {
+            inputElement.disabled = selectElement.value !== 'Lainnya';
+            selectElement.disabled = selectElement.value === 'Lainnya';
         });
     }
 
